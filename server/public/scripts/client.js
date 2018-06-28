@@ -4,6 +4,7 @@ $(document).ready(function(){
     console.log('jquery loaded');
     handleGetQuote();
     $('#submitQuote').on('click', handleSubmitQuote);
+    $('#randomQuote').on('click', handleRandomQuote);
 });
 
 function handleGetQuote(){
@@ -27,7 +28,7 @@ function displayQuotes(quoteArray){
             `<div class="card" style="width: 18rem; height: 36rem;">
                 <img class="card-img-top" src="${thing.imgURL}" alt="${thing.person}">
                 <div class="card-body">
-                    <blockquote class="bg-gray primary">
+                    <blockquote class="bg-gray secondary">
                     <p>
                     <em>"${thing.quote}"</em>
                     </p>
@@ -46,8 +47,8 @@ function displayQuotes(quoteArray){
 function handleSubmitQuote(){
     console.log('submit button clicked');
     $.ajax({
-        url: 'new-quote',
-        type: 'POST',
+        url: '/new-quote',
+        method: 'POST',
         data: {
             quote : $('#quoteInput').val(),
             person : $('#personInput').val(),
@@ -57,11 +58,23 @@ function handleSubmitQuote(){
         console.log(res);
     }).fail(function(err){
         console.log(err);
-    })
+    });
 
     $('#quoteInput').val('');
     $('#personInput').val('');
     $('#imgInput').val('');
     $('#quoteInput').focus();
     handleGetQuote();
+}
+
+function handleRandomQuote(){
+    console.log('random quote btton clicked');
+    $.ajax({
+        url: '/random',
+        method: 'GET'
+    }).done(function(res){
+        displayQuotes(res);
+    }).fail(function(err){
+        console.log(err);
+    });
 }

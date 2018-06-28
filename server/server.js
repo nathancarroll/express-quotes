@@ -26,6 +26,12 @@ app.post('/new-quote', function(req, res){
     res.end(JSON.stringify(response));
 });
 
+app.get('/random', function(req, res){
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    let thing = quotes[randomIndex];
+    res.send([thing]);
+});
+
 // Quotes object
 const quotes = [
     {
