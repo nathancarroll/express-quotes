@@ -24,7 +24,7 @@ function displayQuotes(quoteArray){
     $('#quoteCards').empty();
     for (thing of quoteArray){
         $('#quoteCards').append(
-            `<div class="card" style="width: 18rem;">
+            `<div class="card" style="width: 18rem; height: 36rem;">
                 <img class="card-img-top" src="${thing.imgURL}" alt="${thing.person}">
                 <div class="card-body">
                     <h5 class="card-title">${thing.person}</h5>
