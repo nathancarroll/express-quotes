@@ -2,7 +2,7 @@ console.log('client.js loaded');
 
 $(document).ready(function(){
     console.log('jquery loaded');
-    $('#getQuote').on('click', handleGetQuote);
+    handleGetQuote();
     $('#submitQuote').on('click', handleSubmitQuote);
 });
 
@@ -21,10 +21,17 @@ function handleGetQuote(){
 }
 
 function displayQuotes(quoteArray){
-    $('#quoteList').empty();
+    $('#quoteCards').empty();
     for (thing of quoteArray){
-        $('#quoteList').append(`<li>"${thing.quote}" --${thing.person}`);
-    };
+        $('#quoteCards').append(
+            `<div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="${thing.imgURL}" alt="${thing.person}">
+                <div class="card-body">
+                    <h5 class="card-title">${thing.person}</h5>
+                    <p class="card-text">${thing.quote}</p>
+                </div>
+            </div>`
+        )};
 };
 
 function handleSubmitQuote(){
@@ -42,5 +49,8 @@ function handleSubmitQuote(){
         console.log(err);
     })
 
+    $('#quoteInput').val('');
+    $('#personInput').val('');
+    $('#quoteInput').focus();
     handleGetQuote();
 }

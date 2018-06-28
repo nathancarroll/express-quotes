@@ -4,14 +4,22 @@
         <title>GET SOME QUOTES</title>
         <script src="vendors/jquery-3.3.1.min.js"></script>
         <script src="scripts/client.js"></script>
+        <link rel="stylesheet" href="vendors/bootstrap.min.css">
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <h2>QUOTES</h2>
-        <button id="getQuote">GET QUOTES</button>
-        <ul id="quoteList"></ul>
-            <input type="text" id="quoteInput" placeholder="Quote"> <br>
-            <input type="text" id="personInput" placeholder="Person"> <br>
-            <button id="submitQuote">SUBMIT QUOTE</button>     
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <h1>QUOTES</h1>      
+                <p>The internet's premiere online repository for quotes that I just made up.</p>
+            </div>
+            <div id="inputFields">
+            <input type="text" id="quoteInput" placeholder="Quote"> 
+            <input type="text" id="personInput" placeholder="Person"> 
+            <input type="text" id="imgIngput" placeholder="Image URL">
+            <button id="submitQuote">SUBMIT QUOTE</button>
+            </div>
+            <div id="quoteCards"></div>    
+        </div>         
     </body>
 </html>

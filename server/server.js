@@ -11,11 +11,6 @@ const port = process.env.PORT || 5000; // Used to direct traffic
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-//allow express to access our html (index.html) file
-// app.get('/index.html', function(req, res) {
-//     res.sendFile(__dirname + "/" + "index.html");
-// });
-
 //route the GET request to the specified path, "/user". 
 //This sends the user information to the path  
 app.post('/new-quote', function(req, res){
@@ -34,15 +29,18 @@ app.post('/new-quote', function(req, res){
 const quotes = [
     {
         quote: 'Outside of a dog, a book is a man\'s best friend. Inside of a dog, it\'s too dark to read.',
-        person: 'Groucho Marx'
+        person: 'Groucho Marx',
+        imgURL: 'https://3.bp.blogspot.com/-iT7obJRRqmg/WVTXtQ110nI/AAAAAAAAM30/xEsY2ZIC7lkzBfvSKV1laDD9c_hQzdkogCLcBGAs/s1600/gm.jpg'
     },
     {
         quote: 'That I may reduce the monster to / Myself, and then may be myself / In face of the monster.',
-        person: 'Wallace Stevens'
+        person: 'Wallace Stevens',
+        imgURL: 'http://www.theimaginativeconservative.org/wp-content/uploads/2012/01/wallace-stevens.jpg'
     },
     {
         quote: 'The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.',
-        person: 'John Milton'
+        person: 'John Milton',
+        imgURL: 'http://etc.usf.edu/clipart/6200/6288/milton_4_lg.gif'
     }
 ];
 
@@ -58,8 +56,3 @@ app.listen(port, function() {
     console.log('listening on port', port);
 });
 
-// var server = app.listen(8888, function(){
-//     var host = server.address().address;
-//     var port = server.address().port;
-//     console.log("Example app listening at http://%s:%s", host, port);
-// });
