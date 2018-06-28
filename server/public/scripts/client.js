@@ -27,8 +27,17 @@ function displayQuotes(quoteArray){
             `<div class="card" style="width: 18rem; height: 36rem;">
                 <img class="card-img-top" src="${thing.imgURL}" alt="${thing.person}">
                 <div class="card-body">
+                    <blockquote class="bg-gray primary">
+                    <p>
+                    <em>"${thing.quote}"</em>
+                    </p>
+                    <small>${thing.person}
+                    </small>
+                    </blockquote>
+                    <!--
                     <h5 class="card-title">${thing.person}</h5>
                     <p class="card-text">${thing.quote}</p>
+                    -->
                 </div>
             </div>`
         )};
