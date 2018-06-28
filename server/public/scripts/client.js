@@ -41,7 +41,8 @@ function handleSubmitQuote(){
         type: 'POST',
         data: {
             quote : $('#quoteInput').val(),
-            person : $('#personInput').val()
+            person : $('#personInput').val(),
+            imgURL: $('#imgInput').val()
         }
     }).done(function(res){
         console.log(res);
@@ -51,6 +52,7 @@ function handleSubmitQuote(){
 
     $('#quoteInput').val('');
     $('#personInput').val('');
+    $('#imgInput').val('');
     $('#quoteInput').focus();
     handleGetQuote();
 }

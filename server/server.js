@@ -16,7 +16,8 @@ app.use(bodyParser.json());
 app.post('/new-quote', function(req, res){
     let response = {
         quote : req.body.quote,
-        person : req.body.person
+        person : req.body.person,
+        imgURL : req.body.imgURL
     };
 
     quotes.push(response);
